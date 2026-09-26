@@ -20,9 +20,10 @@ Scene0 타이틀 → Scene1 숨은 밴던이 찾기(10마리) → Scene2 러너(
 | `assets/village.jpg` | 숨은그림찾기 마을 | 포함 |
 | `assets/cat-photo.png` | 10마리 모두 찾았을 때 날아오는 밴던이 사진 | 포함 |
 | `assets/1.png` `2.png` `3.png` | 컷씬 | 포함 |
-| `assets/title.jpg` | 타이틀 배경 | 없음 → 파스텔 그라데이션 + 이모지로 대체 |
-| `assets/ending-wedding.png` | 엔딩 웨딩 일러스트 | 없음 → 이모지 카드로 대체 |
+| `assets/title.jpg` | 타이틀 배경 | 포함 |
+| `assets/ending-wedding.png` | 엔딩 웨딩 사진 | 포함 |
+| `assets/ending-cat.png` | 엔딩 프로포즈 고양이 사진 | 포함 |
 | `assets/runner.png` | (선택) 러너 캐릭터 스프라이트 | 없음 → 캔버스로 직접 그림 |
 
-없는 파일을 같은 이름으로 `assets/` 에 넣으면 자동으로 적용됩니다.
+이미지가 없으면 파스텔 도형/이모지로 대신 보여줘요. 없는 파일을 같은 이름으로 `assets/` 에 넣으면 자동으로 적용됩니다.
 숨은 밴던이 좌표는 `game.js` 의 `CAT_SPOTS`, 게임 문구는 `TEXT` 에서 수정할 수 있어요.

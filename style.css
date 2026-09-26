@@ -105,7 +105,7 @@ img { -webkit-user-drag: none; pointer-events: none; }
 .btn-row { display: flex; gap: 1em; justify-content: center; flex-wrap: wrap; }
 
 /* ----- 타이틀 / 대기 화면 ----- */
-.title-scene { justify-content: space-between; padding: 12% 6% 16%; }
+.title-scene { justify-content: space-between; padding: 12% 6% 9%; }
 .title-card {
   position: relative;
   z-index: 1;
@@ -194,6 +194,7 @@ img { -webkit-user-drag: none; pointer-events: none; }
   pointer-events: none;
 }
 .hud.left { left: 3%; }
+.find-scene .hud { top: 1.5%; font-size: .95em; }
 .hud.right { right: 3%; }
 .hud b { color: #e0679a; font-weight: normal; }
 
@@ -376,20 +377,21 @@ img { -webkit-user-drag: none; pointer-events: none; }
 /* ----- Scene5 엔딩 ----- */
 .ending-scene { gap: 1.2em; padding: 6% 6% 7%; justify-content: space-between; }
 .ending-scene .question { font-size: 1.4em; color: #e0679a; animation: pop .45s cubic-bezier(.3, 1.6, .5, 1); }
+.wedding-photos { position: relative; width: 100%; flex: 1; min-height: 0; }
 .wedding {
-  width: 92%;
-  flex: 1;
-  min-height: 0;
+  position: absolute;
   border: .3em solid #fff;
-  border-radius: 1.4em;
+  border-radius: 1.2em;
   box-shadow: 0 .8em 1.8em rgba(120, 70, 120, .3);
   background: #fff;
   opacity: 0;
-  transform: scale(.7);
   transition: opacity .7s, transform .8s cubic-bezier(.3, 1.6, .5, 1);
 }
-.wedding.show { opacity: 1; transform: scale(1); }
-.wedding .fallback { background: linear-gradient(180deg, #fff4f9, #efe6ff 60%, #e1f7ef); font-size: 4.2em; }
+.wedding.main { top: 0; left: 0; width: 88%; aspect-ratio: 539 / 387; transform: rotate(-3deg) scale(.6); }
+.wedding.cat { bottom: 0; right: 0; width: 58%; aspect-ratio: 1; transform: rotate(4deg) scale(.6); }
+.wedding.main.show { opacity: 1; transform: rotate(-3deg) scale(1); }
+.wedding.cat.show { opacity: 1; transform: rotate(4deg) scale(1); }
+.wedding .fallback { background: linear-gradient(180deg, #fff4f9, #efe6ff 60%, #e1f7ef); font-size: 3.4em; }
 .wedding .fallback p { font-size: .3em; color: var(--ink-soft); }
 .ending-scene .btn { opacity: 0; transition: opacity .5s; pointer-events: none; }
 .ending-scene .btn.show { opacity: 1; pointer-events: auto; }
