@@ -163,17 +163,45 @@ function renderScene0() {
   s.appendChild(
     imageBox(ASSET.title, 'bg', '<div class="row">🏡🌸</div><div class="row">🐈‍⬛💗</div>', 'title-fallback')
   );
+  s.appendChild(titleDeco());
+
   const card = el('div', 'title-card');
-  card.appendChild(el('div', 'sub', TEXT.titleSub));
+  card.appendChild(el('span', 'card-bow left', '🎀'));
+  card.appendChild(el('span', 'card-bow right', '🎀'));
+  card.appendChild(el('div', 'sub', `💕 ${TEXT.titleSub} 💕`));
   card.appendChild(el('h1', '', TEXT.title));
+  card.appendChild(el('div', 'garland', '🍓🌼🍒🌼🍓'));
   s.appendChild(card);
 
   const col = el('div', 'btn-col');
-  col.appendChild(button('게임 설명', 'lav', () => modal('게임 설명', TEXT.help0)));
-  col.appendChild(button('게임 시작', '', () => goTo(1)));
+  col.appendChild(button('🌼 게임 설명 🌼', 'lav', () => modal('게임 설명', TEXT.help0)));
+  col.appendChild(button('🍓 게임 시작 🍓', '', () => goTo(1)));
   s.appendChild(col);
   game.appendChild(s);
   preload([ASSET.village, ASSET.catPhoto]);
+}
+
+/** 타이틀 화면 가장자리에 흩뿌리는 이모지 장식 (가운데 고양이 얼굴은 비워 둠) */
+function titleDeco() {
+  const items = [
+    // [x%, y%, 크기(em), 이모지]
+    [30, 2.5, 1.3, '🌼'], [50, 2, 1.1, '🍒'], [68, 2.5, 1.3, '💕'],
+    [5, 29, 1.8, '🍓'], [89, 27, 1.7, '🌼'], [9, 40, 1.4, '💕'], [86, 39, 1.9, '🎀'],
+    [4, 52, 1.7, '🌼'], [90, 51, 1.6, '🍓'], [11, 64, 2, '🍒'], [85, 63, 1.5, '💕'],
+    [30, 41, 1.1, '💕'], [66, 42, 1.1, '✨'],
+    [5, 78, 1.5, '💕'], [90, 77, 1.8, '🌼'],
+    [12, 94, 1.5, '🍒'], [34, 95.5, 1.2, '🌼'], [52, 94.5, 1.4, '💕'], [70, 95.5, 1.2, '🍓'], [88, 94, 1.6, '🎀'],
+  ];
+  const layer = el('div', 'title-deco');
+  items.forEach(([x, y, size, emoji], i) => {
+    const d = el('span', 'deco-item', emoji);
+    d.style.left = x + '%';
+    d.style.top = y + '%';
+    d.style.fontSize = size + 'em';
+    d.style.animationDelay = (i * 0.37 % 2.4).toFixed(2) + 's';
+    layer.appendChild(d);
+  });
+  return layer;
 }
 
 /* =========================================================
