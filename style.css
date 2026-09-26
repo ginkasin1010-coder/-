@@ -194,6 +194,7 @@ img { -webkit-user-drag: none; pointer-events: none; }
   pointer-events: none;
 }
 .hud.left { left: 3%; }
+.find-scene .hud { top: 1.5%; font-size: .95em; }
 .hud.right { right: 3%; }
 .hud b { color: #e0679a; font-weight: normal; }
 
