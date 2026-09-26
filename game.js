@@ -29,6 +29,7 @@ const ASSET = {
   catPhoto: 'assets/cat-photo.png',
   cuts: ['assets/1.png', 'assets/2.png', 'assets/3.png'],
   wedding: 'assets/ending-wedding.png',
+  weddingCat: 'assets/ending-cat.png',
   runner: 'assets/runner.png', // 선택: 있으면 러너 캐릭터로 사용, 없으면 캔버스로 직접 그림
 };
 
@@ -774,7 +775,7 @@ function renderScene3() {
   });
   game.appendChild(s);
   show();
-  preload([ASSET.wedding]);
+  preload([ASSET.wedding, ASSET.weddingCat]);
 }
 
 /* =========================================================
@@ -830,19 +831,24 @@ function renderScene5() {
   const s = el('section', 'scene ending-scene propose-scene');
   floaties(s, ['💗', '💐', '✨', '🐈‍⬛']);
   s.appendChild(el('div', 'question', TEXT.ending));
+  const photos = el('div', 'wedding-photos');
   const pic = imageBox(
     ASSET.wedding,
-    'wedding contain',
-    '👰‍♀️🤵‍♂️<br>🐈‍⬛💍<p>은비 ♥ 밴던이 ♥ 그리고 당신</p>'
+    'wedding main',
+    '👰‍♀️🤵‍♂️<p>은비 ♥ 그리고 당신</p>'
   );
-  s.appendChild(pic);
+  const catPic = imageBox(ASSET.weddingCat, 'wedding cat', '🐈‍⬛💍');
+  photos.appendChild(pic);
+  photos.appendChild(catPic);
+  s.appendChild(photos);
   const again = button('다시 플레이', '', () => goTo(0));
   s.appendChild(again);
   s.appendChild(el('div', 'fin', 'THE END'));
   game.appendChild(s);
 
   later(() => pic.classList.add('show'), 900);
-  later(() => again.classList.add('show'), 2000);
+  later(() => catPic.classList.add('show'), 1600);
+  later(() => again.classList.add('show'), 2500);
 }
 
 /* ---------- 시작 ---------- */
